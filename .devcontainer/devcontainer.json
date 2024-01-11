@@ -8,7 +8,7 @@
 		"ghcr.io/rocker-org/devcontainer-features/pandoc:1": {},
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
 		"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-            "packages": "cli,rlang,corx,rmarkdown,tidyr,data.table,glue,dplyr,ggplot2,psych,papaja",
+            "packages": "cli,rlang,corx,rmarkdown,tidyr,data.table,glue,dplyr,ggplot2,psych,papaja,tinytex",
             "installSystemRequirements": true
         }
 	},
@@ -20,7 +20,8 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip install radian",
+	// Add tinytex for LaTeX support.
+	"postCreateCommand": "R -q -e tinytex::install_tinytex()",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
