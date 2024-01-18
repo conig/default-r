@@ -22,7 +22,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// Add tinytex for LaTeX support.
 	"postCreateCommand": {
-		"installLibXt6": "sudo apt-get update && sudo apt-get install -y libxt6",
+		"installLibXt6andlibzmq3": "sudo apt-get update && sudo apt-get install -y libxt6 && sudo apt-get install -y libzmq3",
 		"installTinyTexAndPackages": "R -q -e 'tinytex::install_tinytex(); tinytex::tlmgr_install(\"threeparttable\"); tinytex::tlmgr_install(\"babel-english\")'"
 	},
 	"initializeCommand": "echo 'Hello World!'"
