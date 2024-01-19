@@ -12,7 +12,7 @@
 		"ghcr.io/rocker-org/devcontainer-features/pandoc:1": {},
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
 		"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-            		"packages": "cli,targets,corx,languageserver,rmarkdown,data.table,glue,psych,papaja,tinytex,conig/metaKIN,conig/stop,conig/snipe,conig/seeit,conig/revise",
+            		"packages": "cli,targets,httpgd,corx,languageserver,rmarkdown,data.table,glue,psych,papaja,tinytex,conig/metaKIN,conig/stop,conig/snipe,conig/seeit,conig/revise",
             	"installSystemRequirements": true
         },
 		"ghcr.io/rocker-org/devcontainer-features/renv-cache:latest": {}
