@@ -4,13 +4,18 @@
 	"name": "R (rocker/r-ver base)",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3",
+	"containerEnv": {
+        	"OMP_NUM_THREADS": "1",
+        	"OPENBLAS_NUM_THREADS": "1"
+    	},
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/pandoc:1": {},
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
 		"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-            "packages": "cli,targets,corx,languageserver,rmarkdown,data.table,glue,psych,papaja,tinytex,conig/metaKIN,conig/stop,conig/snipe,conig/seeit,conig/revise",
-            "installSystemRequirements": true
-        }
+            		"packages": "cli,targets,corx,languageserver,rmarkdown,data.table,glue,psych,papaja,tinytex,conig/metaKIN,conig/stop,conig/snipe,conig/seeit,conig/revise",
+            	"installSystemRequirements": true
+        },
+		"ghcr.io/rocker-org/devcontainer-features/renv-cache:latest": {}
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
