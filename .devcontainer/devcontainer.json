@@ -18,9 +18,6 @@
 		"ghcr.io/rocker-org/devcontainer-features/renv-cache:latest": {}
 	},
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
@@ -30,7 +27,7 @@
 		"installLibXt6andlibzmq3": "sudo apt-get update && sudo apt-get install -y libxt6 && sudo apt-get install -y libzmq3-dev",
 		"installTinyTexAndPackages": "R -q -e 'tinytex::install_tinytex(); tinytex::tlmgr_install(\"threeparttable\"); tinytex::tlmgr_install(\"babel-english\")'"
 	},
-	"initializeCommand": "echo 'Hello World!'",
+	"initializeCommand": "echo 'init'",
 	"customizations": {
 		"vscode": {
 			"extensions": [
