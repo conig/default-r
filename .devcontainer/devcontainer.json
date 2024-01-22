@@ -30,10 +30,17 @@
 		"installLibXt6andlibzmq3": "sudo apt-get update && sudo apt-get install -y libxt6 && sudo apt-get install -y libzmq3-dev",
 		"installTinyTexAndPackages": "R -q -e 'tinytex::install_tinytex(); tinytex::tlmgr_install(\"threeparttable\"); tinytex::tlmgr_install(\"babel-english\")'"
 	},
-	"initializeCommand": "echo 'Hello World!'"
+	"initializeCommand": "echo 'Hello World!'",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"tomoki1207.pdf",
+				"REditorSupport.r"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
-	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
