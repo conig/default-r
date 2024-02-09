@@ -24,7 +24,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// Add tinytex for LaTeX support.
 	"postCreateCommand": {
-		"InstallPackages": ".devcontainer/install.sh",
+		"installLibXt6andlibzmq3": "sudo apt-get update && sudo apt-get install -y libxt6 && sudo apt-get install -y libzmq3-dev && sudo apt-get install -y xclip",
 		"initR": "R -q -e 'source(\".devcontainer/init.R\")'"
 	},
 	"initializeCommand": "echo 'init'",
