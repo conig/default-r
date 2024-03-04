@@ -35,10 +35,10 @@
 				"REditorSupport.r"
 			]
 		}
-	}
+	},
 
 	// Configure tool-specific properties.
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "root"
 }
