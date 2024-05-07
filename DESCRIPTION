@@ -1,0 +1,18 @@
+Imports:
+    languageserver,
+    httpgd,
+    jsonlite,
+    stop,
+    papaja,
+    jsonlite,
+    see,
+    snipe,
+    usethis,
+    targets,
+    metaKIN,
+    pak
+Remotes:
+    github::conig/stop,
+    github::conig/snipe,
+    github::conig/metaKIN
+    
