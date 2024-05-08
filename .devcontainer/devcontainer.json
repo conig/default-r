@@ -13,14 +13,14 @@
         "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
         "ghcr.io/rocker-org/devcontainer-features/renv-cache:latest": {}
     },
-    // "postCreateCommand": "echo 'jobs done.",
+    // "postCreateCommand": "Rscript -e 'renv::install(interactive = FALSE)'",
     "initializeCommand": "echo 'init'",
     "customizations": {
         "vscode": {
             "extensions": [
                 "tomoki1207.pdf",
                 "REditorSupport.r",
-                "Docker"
+                "ms-azuretools.vscode-docker"
             ]
         }
     }
