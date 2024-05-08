@@ -51,3 +51,5 @@ rsconnect/
 renv/
 
 .Rprofile
+
+.vscode/
