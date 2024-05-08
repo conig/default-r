@@ -12,7 +12,7 @@ Imports:
     metaKIN,
     pak
 Remotes:
-    github::conig/stop,
-    github::conig/snipe,
-    github::conig/metaKIN
+    git::https://github.com/conig/stop.git,
+    git::https://github.com/conig/snipe.git,
+    git::https://github.com/conig/metaKIN.git
     
