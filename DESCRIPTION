@@ -11,8 +11,11 @@ Imports:
     usethis,
     targets,
     metaKIN,
-    pak
+    pak,
+    corx,
+    mtab
 Remotes:
     git::https://github.com/conig/stop.git,
     git::https://github.com/conig/snipe.git,
-    git::https://github.com/conig/metaKIN.git
+    git::https://github.com/conig/metaKIN.git,
+    git::https://github.com/conig/mtab.git
