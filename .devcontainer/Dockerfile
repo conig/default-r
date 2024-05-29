@@ -11,7 +11,14 @@ RUN apt-get update && apt-get install -y \
     wget \
     ca-certificates \
     libglpk-dev \
-    texinfo
+    texinfo \
+    librsvg2-2 \
+    libsodium-dev \
+    libsecret-1-dev \
+    cmake \
+    libpoppler-cpp-dev \
+    libgsl-dev \
+    librsvg2-dev
 
 ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
