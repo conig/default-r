@@ -20,11 +20,13 @@
             "extensions": [
                 "tomoki1207.pdf",
                 "REditorSupport.r",
-                "ms-azuretools.vscode-docker"
+                "ms-azuretools.vscode-docker",
+                "GitHub.vscode-pull-request-github"
             ]
         }
-    }
-	// "mounts" : [
+    },
+	"mounts" : [
+	  "source=${localEnv:HOME}/.ssh,target=/home/rstudio/.ssh,type=bind,consistency=cached"
 	// "source=/mnt/c/Users/James/,target=/home/.local,type=bind,consistency=cached"
-	// ]
+	 ]
 }
