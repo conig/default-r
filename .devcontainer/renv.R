@@ -1,12 +1,12 @@
-status <- renv::status()
+install.packages("gitcreds")
 
-lck <- unlist(status$lockfile)
-
-if(!is.null(lck)){
-    renv::restore(prompt = FALSE)
-    renv::install(prompt = FALSE)
-} else{
-    install.packages("gitcreds")
-    renv::install(prompt = FALSE)
+if(is.null(unlist(renv::status()$library))){
     renv::init()
 }
+# Try to restore
+try(
+  renv::restore(prompt = FALSE),
+  silent = TRUE
+)
+# Install any missing packages
+renv::install(prompt = FALSE)
