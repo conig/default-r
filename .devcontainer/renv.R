@@ -1,4 +1,5 @@
 install.packages("gitcreds")
+options(install.opts = "--no-lock")
 
 if(is.null(unlist(renv::status()$library))){
     renv::init()
@@ -9,10 +10,10 @@ try(
   silent = TRUE
 )
 # Get packages in lockfile
-lockfile_pkgs <- sapply(renv::status()$lockfile$Packages,
-  function(x) x$Package)
+lockfile_pkgs <- unlist(sapply(renv::status()$lockfile$Packages,
+  function(x) x$Package))
   
-# Install any missing packages
+# Install any missing dev packages
 renv::install(prompt = FALSE,
               lock = FALSE,
               exclude = lockfile_pkgs)
