@@ -8,5 +8,11 @@ try(
   renv::restore(prompt = FALSE),
   silent = TRUE
 )
+# Get packages in lockfile
+lockfile_pkgs <- sapply(renv::status()$lockfile$Packages,
+  function(x) x$Package)
+  
 # Install any missing packages
-renv::install(prompt = FALSE)
+renv::install(prompt = FALSE,
+              lock = FALSE,
+              exclude = lockfile_pkgs)
