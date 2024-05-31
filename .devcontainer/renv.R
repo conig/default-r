@@ -1,19 +1,40 @@
-install.packages("gitcreds")
 options(install.opts = "--no-lock")
 
-if(is.null(unlist(renv::status()$library))){
+# Initialize renv if the library is empty
+if (is.null(unlist(renv::status()$library))) {
     renv::init()
 }
-# Try to restore
-try(
-  renv::restore(prompt = FALSE),
-  silent = TRUE
+
+# Try to restore the environment from the lockfile
+tryCatch(
+  {
+    renv::restore(prompt = FALSE)
+  },
+  error = function(e) {
+    message("Error during renv::restore: ", e$message)
+  }
 )
-# Get packages in lockfile
-lockfile_pkgs <- unlist(sapply(renv::status()$lockfile$Packages,
-  function(x) x$Package))
-  
-# Install any missing dev packages
-renv::install(prompt = FALSE,
-              lock = FALSE,
-              exclude = lockfile_pkgs)
+
+# Check if all packages in the lockfile are installed
+lockfile_pkgs <- names(renv::status()$lockfile$Packages)
+installed_pkgs <- names(renv::status()$library$Packages)
+
+missing_pkgs <- setdiff(lockfile_pkgs, installed_pkgs)
+
+# Install any missing development packages
+if (length(missing_pkgs) > 0) {
+  message("Installing missing packages: ", paste(missing_pkgs, collapse = ", "))
+  renv::install(packages = missing_pkgs, prompt = FALSE, lock = FALSE)
+} else {
+  message("All packages from the lockfile are already installed.")
+}
+
+# Additional check to ensure all packages are installed
+installed_pkgs <- names(renv::status()$library$Packages)
+still_missing_pkgs <- setdiff(lockfile_pkgs, installed_pkgs)
+
+if (length(still_missing_pkgs) > 0) {
+  message("Some packages are still missing: ", paste(still_missing_pkgs, collapse = ", "))
+} else {
+  message("All packages from the lockfile are successfully installed.")
+}
