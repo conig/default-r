@@ -13,7 +13,9 @@ Imports:
     metaKIN,
     pak,
     corx,
-    mtab
+    mtab,
+    Rcpp,
+    psych
 Remotes:
     git::https://github.com/conig/stop.git,
     git::https://github.com/conig/snipe.git,
