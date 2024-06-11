@@ -23,7 +23,8 @@
                 "tomoki1207.pdf",
                 "REditorSupport.r",
                 "ms-azuretools.vscode-docker",
-                "GitHub.vscode-pull-request-github"
+                "GitHub.vscode-pull-request-github",
+		"streetsidesoftware.code-spell-checker"
             ]
         }
     },
