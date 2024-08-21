@@ -1,16 +1,6 @@
 # Use the specified R version from rocker-org
 FROM ghcr.io/rocker-org/devcontainer/r-ver:4.4
 
-# get the latest nvim version
-RUN apt-get update && \
-    apt-get install -y software-properties-common && \
-    add-apt-repository ppa:neovim-ppa/unstable && \
-    apt-get update && \
-    apt-get install -y neovim
-
-# Install Lazy
-RUN   git clone https://github.com/LazyVim/starter home/rstudio/.config/nvim
-
 # Install dependencies for R, system utilities, and LaTeX
 RUN apt-get update && apt-get install -y \
     libxt6 \
@@ -36,11 +26,6 @@ RUN apt-get update && apt-get install -y \
     luarocks \
     build-essential
     
-RUN git clone https://github.com/NvChad/NvChad ~/.config/nvim
-
-# Start neovim by default when the container runs
-CMD ["nvim"]
-
 ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
 

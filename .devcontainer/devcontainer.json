@@ -27,8 +27,7 @@
         }
     },
 	"mounts" : [
-	  "source=${localEnv:HOME}/.ssh,target=/home/rstudio/.ssh,type=bind,consistency=cached",
-      "source=${localEnv:HOME}/.config,target=/home/.config,type=bind,consistency=cached"
+	  "source=${localEnv:HOME}/.ssh,target=/home/rstudio/.ssh,type=bind,consistency=cached"
 	// "source=/mnt/c/Users/James/,target=/home/.local,type=bind,consistency=cached"
 	 ]
 }
