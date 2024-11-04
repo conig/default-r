@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install -y \
     libxt6 \
     libzmq3-dev \
     xclip \
-    fftw3 \
     perl \
     wget \
     ca-certificates \
@@ -24,9 +23,11 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     ripgrep \
     luarocks \
-    build-essential
+    build-essential \
+    tmux \
+    rsync
     
-ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
+ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"YY
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
 
 COPY install_neovim.sh /app/
@@ -38,10 +39,18 @@ RUN apt-get update && \
     apt-get install -y git nodejs ripgrep build-essential && \
     git clone https://github.com/NvChad/starter /root/.config/nvim
 
+# Install TPM
+RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Initialise NvChad and install plugins
 # RUN nvim --headless +"autocmd User PackerComplete quitall" +PackerSync && \
     # nvim --headless -c "qall"  
 # Copy the script into the Docker image
-COPY install_tex.sh /app/
-RUN chmod +x /app/install_tex.sh
-RUN /app/install_tex.sh
+# COPY install_tex.sh /app/
+# RUN chmod +x /app/install_tex.sh
+# RUN /app/install_tex.sh
+
+# RUN --mount=type=ssh \
+#     git clone --separate-git-dir=$HOME/.dotfiles git@github.com:conig/.dotfiles.git tmpdotfiles && \
+#     rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/ && \
+#     rm -r tmpdotfiles

@@ -26,6 +26,9 @@
             ]
         }
     },
+    "remoteEnv": {
+    "SSH_AUTH_SOCK": "/ssh-agent"
+  }, 
 	"mounts" : [
 	  "source=${localEnv:HOME}/.ssh,target=/home/rstudio/.ssh,type=bind,consistency=cached"
 	// "source=/mnt/c/Users/James/,target=/home/.local,type=bind,consistency=cached"
