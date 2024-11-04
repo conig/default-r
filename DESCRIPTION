@@ -15,7 +15,8 @@ Imports:
     corx,
     mtab,
     Rcpp,
-    psych
+    psych,
+    nvimscope.r
 Remotes:
     git::https://github.com/conig/stop.git,
     git::https://github.com/conig/snipe.git,
