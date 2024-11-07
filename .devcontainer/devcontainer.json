@@ -27,7 +27,8 @@
         }
     },
     "remoteEnv": {
-    "SSH_AUTH_SOCK": "/ssh-agent"
+      "TERM": "xterm-256color",
+     "SSH_AUTH_SOCK": "/ssh-agent",
   }, 
 	"mounts" : [
 	  "source=${localEnv:HOME}/.ssh,target=/home/rstudio/.ssh,type=bind,consistency=cached"
