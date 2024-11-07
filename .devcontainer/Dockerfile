@@ -50,8 +50,9 @@ RUN nvim --headless -c "MasonInstallAll" -c "qall"
 # Clone TPM for tmux
 RUN git clone https://github.com/tmux-plugins/tpm /home/rstudio/.tmux/plugins/tpm
 
-RUN sudo git clone --separate-git-dir=$HOME/.dotfiles https://github.com/conig/.dotfiles.git tmpdotfiles
-RUN rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
-RUN sudo rm -rf tmpdotfiles
+RUN echo $RANDOM \
+&& sudo git clone --separate-git-dir=$HOME/.dotfiles https://github.com/conig/.dotfiles.git tmpdotfiles \
+&& rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/ \
+&& sudo rm -rf tmpdotfiles
 
 RUN /home/rstudio/.tmux/plugins/tpm/bin/install_plugins
