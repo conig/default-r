@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     xclip \
     perl \
     wget \
+    curl \
     ca-certificates \
     libglpk-dev \
     texinfo \
@@ -24,7 +25,8 @@ RUN apt-get update && apt-get install -y \
     luarocks \
     build-essential \
     tmux \
-    rsync
+    rsync \
+    zsh
 
 ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
@@ -49,6 +51,8 @@ RUN nvim --headless +Lazy! sync +q
 RUN nvim --headless -c "MasonInstallAll" -c "qall"
 # Clone TPM for tmux
 RUN git clone https://github.com/tmux-plugins/tpm /home/rstudio/.tmux/plugins/tpm
+# install powerlevel10k
+RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 RUN echo $RANDOM \
 && sudo git clone --separate-git-dir=$HOME/.dotfiles https://github.com/conig/.dotfiles.git tmpdotfiles \
@@ -56,3 +60,6 @@ RUN echo $RANDOM \
 && sudo rm -rf tmpdotfiles
 
 RUN /home/rstudio/.tmux/plugins/tpm/bin/install_plugins
+RUN echo "alias r='radian'" >> /home/rstudio/.bashrc
+
+CMD ["zsh"]

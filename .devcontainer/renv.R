@@ -2,7 +2,7 @@ options(install.opts = "--no-lock")
 
 # Initialize renv if the library is empty
 if (is.null(unlist(renv::status()$library))) {
-    renv::init(bare = TRUE)
+    renv::init()
 }
 
 # Try to restore the environment from the lockfile
