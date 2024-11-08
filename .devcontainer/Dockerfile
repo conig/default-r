@@ -53,6 +53,7 @@ RUN sudo rm -rf ~/.oh-my-zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 RUN sudo chsh -s $(which zsh) rstudio
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # Clone TPM for tmux
 RUN git clone https://github.com/tmux-plugins/tpm /home/rstudio/.tmux/plugins/tpm
 ARG CACHE_BUST=1
