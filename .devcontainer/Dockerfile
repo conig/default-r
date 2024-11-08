@@ -56,7 +56,7 @@ RUN sudo chsh -s $(which zsh) rstudio
 # Clone TPM for tmux
 RUN git clone https://github.com/tmux-plugins/tpm /home/rstudio/.tmux/plugins/tpm
 ARG CACHE_BUST=1
-&& sudo git clone --separate-git-dir=$HOME/.dotfiles https://github.com/conig/.dotfiles.git tmpdotfiles \
+RUN sudo git clone --separate-git-dir=$HOME/.dotfiles https://github.com/conig/.dotfiles.git tmpdotfiles \
 && rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/ \
 && sudo rm -rf tmpdotfiles
 
