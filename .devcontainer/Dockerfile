@@ -25,8 +25,7 @@ RUN apt-get update && apt-get install -y \
     luarocks \
     build-essential \
     tmux \
-    rsync \
-    zsh
+    rsync
 
 ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
@@ -45,16 +44,18 @@ USER rstudio
 
 # Create .config directory and clone NvChad
 RUN git clone https://github.com/NvChad/starter /home/rstudio/.config/nvim --depth 1
-
 # Install Neovim plugins non-interactively
-RUN nvim --headless +Lazy! sync +q
 RUN nvim --headless -c "MasonInstallAll" -c "qall"
+RUN nvim --headless +Lazy! sync +q
+RUN nvim --headless +Lazy! sync +q
+# Install Oh My Zsh and Powerlevel10k
+RUN sudo rm -rf ~/.oh-my-zsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+RUN sudo chsh -s $(which zsh) rstudio
 # Clone TPM for tmux
 RUN git clone https://github.com/tmux-plugins/tpm /home/rstudio/.tmux/plugins/tpm
-# install powerlevel10k
-RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-
-RUN echo $RANDOM \
+ARG CACHE_BUST=1
 && sudo git clone --separate-git-dir=$HOME/.dotfiles https://github.com/conig/.dotfiles.git tmpdotfiles \
 && rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/ \
 && sudo rm -rf tmpdotfiles
@@ -62,4 +63,4 @@ RUN echo $RANDOM \
 RUN /home/rstudio/.tmux/plugins/tpm/bin/install_plugins
 RUN echo "alias r='radian'" >> /home/rstudio/.bashrc
 
-CMD ["zsh"]
+

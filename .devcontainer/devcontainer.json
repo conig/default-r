@@ -31,7 +31,8 @@
      "SSH_AUTH_SOCK": "/ssh-agent",
   }, 
 	"mounts" : [
-	  "source=${localEnv:HOME}/.ssh,target=/home/rstudio/.ssh,type=bind,consistency=cached"
-	// "source=/mnt/c/Users/James/,target=/home/.local,type=bind,consistency=cached"
+	  "source=${localEnv:HOME}/.ssh,target=/home/rstudio/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.config/github-copilot,target=/home/rstudio/.config/github-copilot,type=bind,consistency=cached",
+    // "source=/mnt/c/Users/James/,target=/home/.local,type=bind,consistency=cached",
 	 ]
 }
