@@ -25,7 +25,8 @@ RUN apt-get update && apt-get install -y \
     luarocks \
     build-essential \
     tmux \
-    rsync
+    rsync \
+    fzf
 
 ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
