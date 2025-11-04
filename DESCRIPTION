@@ -1,7 +1,6 @@
 Imports:
     reprex,
     languageserver,
-    httpgd,
     jsonlite,
     stop,
     papaja,
@@ -10,7 +9,6 @@ Imports:
     snipe,
     usethis,
     targets,
-    metaKIN,
     pak,
     corx,
     mtab,
@@ -20,6 +18,5 @@ Imports:
 Remotes:
     git::https://github.com/conig/stop.git,
     git::https://github.com/conig/snipe.git,
-    git::https://github.com/conig/metaKIN.git,
     git::https://github.com/conig/mtab.git,
     git::https://github.com/conig/nvimscope.r.git
