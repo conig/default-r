@@ -13,7 +13,6 @@ tar_option_set(
 tar_source("R")
 tar_source("_target_pipelines")
 
-
 c(
   path_targets,
   data_cleaning_targets,
